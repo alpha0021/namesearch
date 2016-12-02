@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<title>seacrh and view</title>
+<style>
+    #container{
+        margin:auto;
+        width:360px;
+        margin-top: 230px;
+    }
+
+    section{
+        background-color: rgb(204, 204, 179);
+        padding: 20px 0px 20px 80px;
+        border-radius: 20px;
+    }
+</style>
+<body>
+<div id="container">
+<section>
+<div ng-app="myApp" ng-controller="namesCtrl">
+
+<p>Type the name of your desired person:</p>
+<button>click to  view details</button>
+
+<p><input type="text" ng-model="test"></p>
+
+<ul>
+  <li ng-repeat="x in names | filter:test">
+    {{ x }}
+  </li>
+</ul>
+
+</div>
+</section>
+<script>
+angular.module('myApp', []).controller('namesCtrl', function($scope) {
+    $scope.names = [
+        'polash',
+        'miraj',
+        'sunny',
+        'piash',
+        'mohsin',
+        'jony',
+        'shakil',
+        'minhaj',
+        'kayes'
+    ];
+});
+</script>
+
+<!--<p>The list will only consists of names matching the filter.</p>-->
+
+</div>
+</body>
+</html>
